@@ -196,6 +196,41 @@ Register → Login → Receive JWT → Send Bearer token on protected routes
 4. Client sends `Authorization: Bearer <token>` on protected requests
 5. Middleware verifies the token, loads the user, and attaches `req.user`
 
+## Deploy on Render
+
+### Commands
+
+| Setting | Value |
+|---------|--------|
+| **Build Command** | `npm install` |
+| **Start Command** | `npm start` |
+
+There is no compile step (`npm run build` is a no-op). Render injects `PORT` automatically — do not set it yourself.
+
+### Dashboard setup
+
+1. Push this repo to GitHub.
+2. In [Render](https://dashboard.render.com/) → **New** → **Web Service** → connect the repo.
+3. Use:
+   - **Runtime:** Node
+   - **Build Command:** `npm install`
+   - **Start Command:** `npm start`
+4. Add environment variables:
+
+| Key | Value |
+|-----|--------|
+| `MONGODB_URI` | Your Atlas connection string (same as local `.env`) |
+| `JWT_SECRET` | A long random secret |
+| `JWT_EXPIRES_IN` | `1d` (optional) |
+| `NODE_ENV` | `production` |
+
+5. In MongoDB Atlas → **Network Access**, allow `0.0.0.0/0` (or Render’s IPs) so the service can connect.
+6. Deploy. API base URL will look like `https://your-service.onrender.com`.
+
+### Blueprint (optional)
+
+This repo includes `render.yaml`. You can also deploy via **New** → **Blueprint** and set `MONGODB_URI` when prompted.
+
 ## License
 
 ISC
