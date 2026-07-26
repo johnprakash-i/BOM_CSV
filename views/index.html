@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authentication API</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --text: #e7ecf3;
+      --muted: #8b9bb4;
+      --accent: #3d8bfd;
+      --border: #2a3548;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 640px;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    p { color: var(--muted); margin-bottom: 1.5rem; }
+    h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.75rem; }
+    ul { list-style: none; }
+    li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.9rem;
+    }
+    li:last-child { border-bottom: none; }
+    .method {
+      font-weight: 700;
+      font-size: 0.75rem;
+      min-width: 3.5rem;
+      color: var(--accent);
+    }
+    .note { margin-top: 1.5rem; font-size: 0.875rem; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Authentication API</h1>
+    <p>Bearer token authentication with Express, Mongoose, and JWT.</p>
+
+    <h2>Endpoints</h2>
+    <ul>
+      <li><span class="method">POST</span> /api/auth/register</li>
+      <li><span class="method">POST</span> /api/auth/login</li>
+      <li><span class="method">GET</span> /api/auth/me <em style="color:var(--muted);font-style:normal;font-family:inherit;font-size:0.8rem">(protected)</em></li>
+    </ul>
+
+    <p class="note">
+      Import the Postman collection from
+      <code>postman/Authentication_API.postman_collection.json</code>
+      to explore sample requests and responses. See the README for setup instructions.
+    </p>
+  </div>
+</body>
+</html>
